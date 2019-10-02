@@ -127,67 +127,6 @@
           </div>
         </div>
         <div class="columns is-centered">
-          <div class="column is-7">
-            <div class="filed">
-              <label class="label is-capitalized has-text-left">department / office</label>
-            </div>
-            <div class="field">
-              <div class="control has-icons-left">
-                <div class="select">
-                  <select class="has-text-centered" v-model="role" required>
-                    <option value="-1" disabled>Select a option</option>
-                    <option value="Admin">Admin</option>
-                    <option value="Software Enginner">Software Enginner</option>
-                    <option value="Qa Engineer">Qa Engineer</option>
-                    <option value="Intern">Intern</option>
-                    <option value="Plugin team">Plugin team</option>
-                  </select>
-                  <span class="icon is-mall">
-                    <i class="fa fa-list"></i>
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="columns is-centered">
-          <div class="column is-7">
-            <div class="filed">
-              <label class="label is-capitalized has-text-left">Address</label>
-            </div>
-            <div class="field">
-              <div class="control has-icons-left">
-                <textarea
-                  style="width:100"
-                  type="text"
-                  class="textarea"
-                  placeholder="address"
-                  v-model="address"
-                required/>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="columns is-centered">
-          <div class="column is-7">
-            <div class="filed">
-              <label class="label is-capitalized has-text-left">Experience</label>
-            </div>
-            <div class="field">
-              <div class="control has-icons-left">
-                <textarea
-                  style="width:100"
-                  type="text"
-                  class="textarea"
-                  placeholder="experiece"
-                  v-model="experience"
-                required/>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="columns is-centered">
           <div class="column is-7 has-text-centered">
             <div class="filed">
               <button class="button is-success" @click="addUser">Register</button>
@@ -201,47 +140,41 @@
 </template>
 
 // <script>
-// import PostsService from "@/services/PostsService";
+import PostsService from '@/services/PostsService';
 
-// export default {
-//   name: "EmployeeAdd",
-//   data() {
-//     return {
-//       name: "",
-//       dob: null,
-//       number: "",
-//       gender: null,
-//       role: "",
-//       email: "",
-//       address: "",
-//       experience: ""
-//     };
-//   },
-//   components: {},
-//   methods: {
-//     async addUser() {
-//        await PostsService.addUser({
-//         name: this.name,
-//         dob: this.dob,
-//         number: this.number,
-//         gender: this.gender,
-//         role: this.role,
-//         email: this.email,
-//         address: this.address,
-//         experience: this.experience
-//       });
-//          this.$buefy.toast.open({
-//                     duration: 5000,
-//                     message: 'Employee named  '+this.name+'   added his profile',
-//                     type: 'is-info',
-//                     position: 'is-top',
-//                 });
+export default {
+  name: "EmployeeAdd",
+  data() {
+    return {
+      name: "",
+      dob: null,
+      number: "",
+      gender: null,
+      email: "",
+    };
+  },
+  components: {},
+  methods: {
+    async addUser() {
+       await PostsService.addUser({
+        name: this.name,
+        dob: this.dob,
+        number: this.number,
+        gender: this.gender,
+        email: this.email
+      });
+         this.$buefy.toast.open({
+                    duration: 5000,
+                    message: 'Employee named  '+this.name+'   added his profile',
+                    type: 'is-info',
+                    position: 'is-top',
+                });
 
-//       this.$router.push({ name: "Employees" });
-//     }
-//   }
-// };
-// </script>
+      //this.$router.push({ name: "Employees" });
+    }
+  }
+};
+</script>
 
 <style scoped>
 .select select:not([multiple]) {
@@ -261,7 +194,7 @@ hr {
 
 #app,
 .bcolor {
-  background-color: #d3f1ec;
+  background-color: #979578;
 }
 .bcolor.section {
   padding: 2.5%;
