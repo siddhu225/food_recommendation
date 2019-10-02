@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import login from '@/components/login'
 import signup from '@/components/signup'
 import forgot_password from '@/components/forgotpassword'
+import cities from '@/components/cities'
 
 Vue.use(Router)
 
@@ -23,6 +24,11 @@ export default new Router({
       path: '/forgot/password',
       name: 'forgot_password',
       component: forgot_password
+    },
+    {
+      path: '/cities',
+      name: 'cities',
+      component: cities
     }
   ]
 })

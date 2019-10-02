@@ -46,7 +46,12 @@
                   class="has-text-right"
                   v-bind:to="{ name: 'ForgotPassword' }"
                   style="color:blue"
-                >Forgot Password?</router-link>
+                >Forgot Password?</router-link>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <router-link
+                  class="has-text-right"
+                  v-bind:to="{ name: 'signup' }"
+                  style="color:blue"
+                >Sign In</router-link>
               </div>
               <div class="field">
                 <button class="button is-success" @click="onLogin">Login</button>
@@ -78,17 +83,13 @@ export default {
         email: this.email,
         password: this.password,
       });
-      // if (res.data == "admin") {
-      //   this.$router.push({ name: "Employees" });
-      // } else if (res.data == "not_user") {
-      //   this.$router.push({ name: "login" });
-      //   alert("Please register first");
-      // } else {
-      //   this.$router.push({
-      //     name: "EmployeeProfile",
-      //     params: { userId: res.data }
-      //   });
-      // }
+      if (res.data == "login successfull") {
+        this.$router.push({ name: "cities" });
+      }  else {
+        this.$router.push({
+          name: "login"
+        });
+      }
     }
   }
 };

@@ -12,5 +12,9 @@ export default {
   postUser1(params){
     console.log(params);
     return Api().post('/forgot/password', params);
+  },
+  fetchCities(params){
+    console.log(params);
+    return Api().post('/cities', params);
   }
 }

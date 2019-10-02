@@ -165,12 +165,12 @@ export default {
       });
          this.$buefy.toast.open({
                     duration: 5000,
-                    message: 'Employee named  '+this.name+'   added his profile',
+                    message: 'you registered successfully',
                     type: 'is-info',
                     position: 'is-top',
                 });
 
-      //this.$router.push({ name: "Employees" });
+      this.$router.push({ name: "login" });
     }
   }
 };

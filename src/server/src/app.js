@@ -111,16 +111,39 @@ app.post('/signup',(req,res)=>{
 
 });
 
-app.get('/posts',(req,res)=>{
+app.post('/cities',(req,res)=>{
 
-  client.getCities({q: 'Hyderabad'})
-  .then(res => console.log(res))
-  .catch(err => console.log(err)); 
+  var city = req.body.city;
 
-  client.getCollections({city_id: 256})
-  .then(res => console.log(res))
+  if(city == 'hyderabad'){
+    client.getCollections({city_id: 256})
+  .then(res1 => {
+    res.send(res1);
+  })
   .catch(err => console.log(err));
-
+  }
+  else if(city == "chennai"){
+    client.getCollections({city_id: 256})
+  .then(res1 =>  {
+    res.send(res1);
+  })
+  .catch(err => console.log(err));
+  }
+  else if(city == 'bengaluru'){
+    client.getCollections({city_id: 256})
+  .then(res1 =>  {
+    res.send(res1);
+  })
+  .catch(err => console.log(err));
+  }
+  
+  else{
+    client.getCollections({city_id: 256})
+    .then(res1 =>  {
+      res.send(res1);
+    })
+    .catch(err => console.log(err));
+  }
 })
 
 
